@@ -87,7 +87,7 @@ namespace esphome {
 
             if (
                 this->lastResponseReceived
-                && now - this->lastResponseReceivedAt >= 90
+                && now - this->lastResponseReceivedAt >= 125
             ) {
                 this->lastResponseReceived = false;
 
