@@ -97,6 +97,7 @@ namespace esphome {
             int response = BlaubergS14Controller::S14_RESPONSE_OK;
 
             while (available()) {
+                write("test");
                 this->lastResponseReceived = true;
                 this->lastResponseReceivedAt = millis();
 
