@@ -85,19 +85,22 @@ namespace esphome {
                 return;
             }
 
-            //if (
+            if (
                 //this->lastResponseReceived
                 //&& now - this->lastResponseReceivedAt >= 125
-            //) {
-               // this->lastResponseReceived = false;
-
+                now - this->lastWriteAt >= 125
+            ) {
+                this->lastResponseReceived = false;
+                
                 write(this->currentSpeed | this->currentDamper | this->currentResetFilter);
-            //}
+                
+                this->lastWriteAt = millis();
+            }
 
             int response = BlaubergS14Controller::S14_RESPONSE_OK;
 
             while (available()) {
-                write("test");
+                ESP_LOGD("test");
                 this->lastResponseReceived = true;
                 this->lastResponseReceivedAt = millis();
 
