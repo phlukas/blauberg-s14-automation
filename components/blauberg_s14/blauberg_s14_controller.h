@@ -61,6 +61,8 @@ class BlaubergS14Controller : public Component, public uart::UARTDevice {
   bool lastResponseReceived = true;
   uint32_t lastResponseReceivedAt = 0;
 
+  uint32_t lastWriteAt = 0;
+
   uint32_t defrostingFromMillis = 0;
   bool isDefrosting = false;
   bool filterReplacementRequired = false;
